@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Template</title>
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static './assets/main.css' %}">
+  </head>
+
+  <body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <a class="navbar-brand">BLOG</a>
+       <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+       </button>
+       <div id="my-nav" class="collapse navbar-collapse">
+           <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                   <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+               </li>
+               
+           </ul>
+       </div>
+   </nav> 
+   
+  
+  <div class="container">
+  {% for blog in blog  %}
+    <div class="card">
+        <div class="card-header">
+            <p>{{blog.title}}</p>
+            <img src="{% static './assets/33100-NYZBHG.jpg'%} "  alt=" " class="img_size flt_left">
+            <div><p clsss="flt_left" style="margin-top: 30px; margin-left: 30px;">{{name}}</p></div>
+           
+        </div>
+        <div id="bodysec" class="card-body">
+
+           <textarea cols="145" rows="30" aria-invalid="true" style="resize:none; border: none;"  readonly>{{blog.body}}</textarea>
+
+            <!--<p class="card-text" style="overflow-y: scroll;">{{blog.body}}</p>-->
+        </div>
+       
+    </div>      
+  </div>
+  {% endfor %}
+    
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+
+</html>

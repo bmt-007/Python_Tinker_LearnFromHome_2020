@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Index</title>
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static '/assets/main.css' %}">
+  </head>
+
+  <body>
+    <div class="jumbotron text-center" style="background-image: url(/static/assets/bk.jpg);">
+      <h1 style="color: white;"><b>TECH_BLOG</b></h1>
+      <p style="color: whitesmoke;"><i>Nothing is Secure...</i></p>
+      <a href="/login"><img src="/static/assets/signin.png" class="signin" type="button"></a>
+      <a href="/login"><p class="signin" style=" color: thistle;">Sign in</p></a>
+    </div>
+
+  {% for blog in blog %}
+    <!-- *bootstrap card inside a container-->
+    <div class="container cust_animation" style="margin-bottom: 50px;"> 
+      <div class="card">
+        <div class="card-header">
+         {{blog.title}}
+        </div>
+        <div class="card-body">
+          
+          <p class="card-text"> {{blog.snippet}}</p>
+        </div>
+        <div class="card-footer">
+          <h6>{{blog.date}}</h6>
+          <a href="/blog/{{ blog.slug}}" class="btn btn-primary flt_right " type="button">View more</a>
+        </div> 
+      </div>
+    </div>
+  {% endfor %}
+    
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+
+
+
+
+
+
+
+
+
+</html>

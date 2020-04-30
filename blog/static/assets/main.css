@@ -1,0 +1,34 @@
+.flt_right
+{
+    float:right
+}
+
+.img_size
+{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.flt_left
+{
+    float: left;
+}
+
+.cust_animation
+{
+transition: 1s;
+}
+
+.cust_animation:hover
+{
+    transform: scale(1.1);
+
+}
+
+.signin
+{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+

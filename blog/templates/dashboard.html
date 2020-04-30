@@ -1,0 +1,97 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Index</title>
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static '/assets/main.css' %}">
+  </head>
+<body>
+
+
+  <!-- !trial for adding contents into the blog using model -->
+  <!-- The Modal -->
+ <!-- <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">-->
+  
+        <!-- Modal Header -->
+        <!--<div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <!--<div class="modal-body">
+            <form method="get" action="">
+                <div class="form-group">
+                    <label for="Tile">Title</label>
+                    <input id="Tile" class="form-control" type="text" name="" placeholder="Tilte">
+                </div>
+                <div class="form-group">
+                    <label for="Content">Content</label>
+                    <textarea id="Content" class="form-control" name="" rows="9"></textarea>
+                </div>
+                <button class="btn btn-danger" type="button" >Done</button>
+            </form> 
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
+-->
+
+
+    <div class="row">
+        <div class="col-lg-1">
+         <nav class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="logout" tabindex="-1" aria-disabled="true">Logout</a>
+            </li>
+         </nav>
+        </div>
+    
+        <div class="col-lg-11">
+
+            <div style="display: flow-root;">
+                <!-- Button to Open the Modal -->
+               <!-- <button type="button" class="btn btn-primary flt_right" data-toggle="modal" data-target="#myModal" style="margin-right: 10px; margin-top: 10px;">ADD</button>
+            </div>-->
+                <a href="add" type="button" class="btn btn-primary flt_right"   style="margin-right: 10px; margin-top: 10px;">ADD</a>
+            </div>
+
+
+          {% for blog in blog %}
+            <div class="container" style="background-color:#DCE3E3; padding-top: 10px; padding-bottom: 50px; margin-top: 10px; border-radius: 10px;">
+                <div class="flt_left">
+                    {{blog.title}}
+                </div>
+                <div>
+                  <form method="POSt" action="delete">
+                  {% csrf_token %}
+                    <input type="hidden" name="id" value="{{blog.id}}">
+                    <button class="btn btn-danger flt_right" type="submit">Delete</button>
+                  </form>
+                  
+                   <a href="update/{{ blog.id}}" class="btn btn-primary flt_right" style="margin-right:10px">Update</a>
+                  
+                  
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+  
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
